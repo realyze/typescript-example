@@ -17,4 +17,13 @@ export class Post {
     @JoinTable()
     categories: Category[];
 
+    @Column({
+        type: "varchar",
+        nullable: true,
+        array: true,
+        // `lenght` on an array makes `TypeORM` generate a new migration every time.
+        length: 25,
+    })
+    myLittleBrokenArray?: string[];
+
 }
